@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Layout, Menu, Button } from 'antd';
 import './App.css';
+
+import RegistrationForm from './Components/pages/registrationpage/RegistrationForm';
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const App = () => {
+  const [showForm, setShowForm] = useState(false);
+
+  const handleRegisterClick = () => {
+    setShowForm(true);
+  };
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider>
@@ -17,6 +25,7 @@ const App = () => {
           <Button type="primary">Event Schedule</Button>
           <Button type="primary">Event Venues</Button>
           <Button type="primary">Login</Button>
+          <Button type="primary" onClick={handleRegisterClick}>Registration</Button>
         </div>
       </Sider>
       <Layout className="site-layout">
@@ -25,7 +34,7 @@ const App = () => {
         </Header>
         <Content style={{ margin: '0 16px' }}>
           <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-            {/* Main content here */}
+            {showForm && <RegistrationForm />}
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
