@@ -21,6 +21,10 @@ const App = () => {
     setShowRegForm(false); 
   };
 
+  const handleEventVenuesClick = () => {
+   setshow
+  }
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider>
@@ -31,8 +35,8 @@ const App = () => {
         <div className="sidebar-buttons">
           <Button type="primary">Home</Button>
           <Button type="primary">Event Schedule</Button>
-          <Button type="primary">Event Venues</Button>
-          <Button type="primary" onClick={handleLoginClick}>Login</Button> {/* Add onClick handler */}
+          <Button type="primary" onClick={handleEventVenuesClick}>Event Venues</Button>
+          <Button type="primary" onClick={handleLoginClick}>Login</Button>
           <Button type="primary" onClick={handleRegisterClick}>Registration</Button>
         </div>
       </Sider>
