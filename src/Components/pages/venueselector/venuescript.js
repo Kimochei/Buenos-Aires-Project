@@ -1,3 +1,7 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import styles from './venuestyles.css';
+
 document.addEventListener('DOMContentLoaded', function() {
     const venues = ['Venue A', 'Venue B', 'Venue C', 'Venue D']; // Example venues
     const select = document.getElementById('venue-select');

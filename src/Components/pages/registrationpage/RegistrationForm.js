@@ -20,7 +20,7 @@ function RegistrationForm() {
     });
   };
 
-  // Define handleSubmit
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
 
