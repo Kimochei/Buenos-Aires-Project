@@ -3,7 +3,8 @@ import { Layout, Menu, Button } from 'antd';
 import './App.css';
 
 import RegistrationForm from './Components/pages/registrationpage/RegistrationForm';
-import loginForm from './Components/pages/loginpage/loginForm'; 
+import loginForm from './Components/pages/loginpage/loginForm.js';
+
 const { Header, Content, Footer, Sider } = Layout;
 
 const App = () => {
