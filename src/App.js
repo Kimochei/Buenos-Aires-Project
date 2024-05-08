@@ -3,8 +3,9 @@ import { Layout, Menu, Button } from 'antd';
 import './App.css';
 
 import RegistrationForm from './Components/pages/registrationpage/RegistrationForm';
-import LoginForm from './Components/pages/loginpage/LoginForm';
-import EventVenues from './Components/pages/eventvenuespage/EventVenues'; // Import EventVenues
+import LoginForm from './Components/pages/loginpage/LoginForm'; // Ensure the component name starts with a capital letter
+import EventVenues from './Components/pages/eventvenues/EventVenues'; // Import your EventVenues component
+import EventSchedule from './Components/pages/eventschedule/calendar';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -12,23 +13,34 @@ const App = () => {
   const [showRegForm, setShowRegForm] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false); 
   const [showEventVenues, setShowEventVenues] = useState(false); // New state for Event Venues
+  const [showEventSchedule, setShowEventSchedule] = useState(false);
 
   const handleRegisterClick = () => {
     setShowRegForm(true);
     setShowLoginForm(false);
     setShowEventVenues(false); // Hide Event Venues when other buttons are clicked
+    setShowEventSchedule(false);
   };
 
   const handleLoginClick = () => {
     setShowLoginForm(true);
     setShowRegForm(false);
     setShowEventVenues(false); // Hide Event Venues when other buttons are clicked
+    setShowEventSchedule(false);
   };
 
   const handleEventVenuesClick = () => {
     setShowEventVenues(true); // Show Event Venues when the button is clicked
     setShowRegForm(false);
     setShowLoginForm(false);
+    setShowEventSchedule(false);
+  };
+
+  const handleEventScheduleClick = () => {
+    setShowEventVenues(false); // Show Event Venues when the button is clicked
+    setShowRegForm(false);
+    setShowLoginForm(false);
+    setShowEventSchedule(true);
   };
 
   return (
@@ -40,7 +52,7 @@ const App = () => {
         </Menu>
         <div className="sidebar-buttons">
           <Button type="primary">Home</Button>
-          <Button type="primary">Event Schedule</Button>
+          <Button type="primary" onClick={handleEventScheduleClick}>Event Schedule</Button>
           <Button type="primary" onClick={handleEventVenuesClick}>Event Venues</Button>
           <Button type="primary" onClick={handleLoginClick}>Login</Button>
           <Button type="primary" onClick={handleRegisterClick}>Registration</Button>
@@ -53,8 +65,9 @@ const App = () => {
         <Content style={{ margin: '0 16px' }}>
           <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
             {showRegForm && <RegistrationForm />}
-            {showLoginForm && <LoginForm />}
+            {showLoginForm && <LoginForm />} {/* Render LoginForm */}
             {showEventVenues && <EventVenues />} {/* Render EventVenues */}
+            {showEventSchedule && <EventSchedule />}
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
