@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import helmet from 'helmet';  
 import morgan from 'morgan';
 
-import clientRoutes from "./routes/client.js";
+import UserRoutes from "./routes/user.js";
 import adminRoutes from "./routes/admin.js";
 import reservationRoutes from "./routes/reservation.js";
 import venueRoutes from "./routes/venue.js";
@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 /* routes */
 
-app.use("/client", clientRoutes);
+app.use("/User", UserRoutes);
 app.use("/admin", adminRoutes);
 app.use("/reservation", reservationRoutes);
 app.use("/venue", venueRoutes);
