@@ -1,7 +1,8 @@
     
 <Sider>
   <div className="logo">
-    <img src={logo} alt="SAAN Logo" />
+  <img src="saan-logo.png" alt="SAAN Logo" />
+
   </div>
   {/* Rest of the sidebar content */}
 </Sider>
