@@ -3,41 +3,41 @@ import { Layout, Menu, Button } from 'antd';
 import './App.css';
 
 import RegistrationForm from './Components/pages/registrationpage/RegistrationForm';
-import LoginForm from './Components/pages/loginpage/LoginForm'; // Ensure the component name starts with a capital letter
-import EventVenues from './Components/pages/eventvenues/EventVenues'; // Import your EventVenues component
-import EventSchedule from './Components/pages/eventschedule/calendar';
+import LoginForm from './Components/pages/loginpage/LoginForm'; 
+import EventVenues from './Components/pages/eventvenuespage/EventVenues';
+import EventSchedule from './Components/pages/eventschedule/Calendar';
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const App = () => {
   const [showRegForm, setShowRegForm] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false); 
-  const [showEventVenues, setShowEventVenues] = useState(false); // New state for Event Venues
+  const [showEventVenues, setShowEventVenues] = useState(false); 
   const [showEventSchedule, setShowEventSchedule] = useState(false);
 
   const handleRegisterClick = () => {
     setShowRegForm(true);
     setShowLoginForm(false);
-    setShowEventVenues(false); // Hide Event Venues when other buttons are clicked
+    setShowEventVenues(false); 
     setShowEventSchedule(false);
   };
 
   const handleLoginClick = () => {
     setShowLoginForm(true);
     setShowRegForm(false);
-    setShowEventVenues(false); // Hide Event Venues when other buttons are clicked
+    setShowEventVenues(false); 
     setShowEventSchedule(false);
   };
 
   const handleEventVenuesClick = () => {
-    setShowEventVenues(true); // Show Event Venues when the button is clicked
+    setShowEventVenues(true); 
     setShowRegForm(false);
     setShowLoginForm(false);
     setShowEventSchedule(false);
   };
 
   const handleEventScheduleClick = () => {
-    setShowEventVenues(false); // Show Event Venues when the button is clicked
+    setShowEventVenues(false); 
     setShowRegForm(false);
     setShowLoginForm(false);
     setShowEventSchedule(true);
@@ -65,8 +65,8 @@ const App = () => {
         <Content style={{ margin: '0 16px' }}>
           <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
             {showRegForm && <RegistrationForm />}
-            {showLoginForm && <LoginForm />} {/* Render LoginForm */}
-            {showEventVenues && <EventVenues />} {/* Render EventVenues */}
+            {showLoginForm && <LoginForm />} 
+            {showEventVenues && <EventVenues />} 
             {showEventSchedule && <EventSchedule />}
           </div>
         </Content>

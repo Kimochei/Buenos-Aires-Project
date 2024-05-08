@@ -5,8 +5,8 @@ import styles from './RegistrationForm.module.css';
 function RegistrationForm() {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    password: ''  // Add password to formData
+    password: '',
+    confirmPassword: ''  
   });
   const [errors, setErrors] = useState({});
 
@@ -23,7 +23,8 @@ function RegistrationForm() {
     let formErrors = {};
     if (!formData.name) formErrors.name = "Name cannot be empty";
     if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) formErrors.email = "Invalid email";
-    if (!formData.password) formErrors.password = "Password cannot be empty";  // Validate password
+    if (!formData.password) formErrors.password = "Password cannot be empty";
+    if (formData.password !== formData.confirmPassword) formErrors.confirmPassword = "Passwords do not match";  
 
     setErrors(formErrors);
 
@@ -67,6 +68,15 @@ function RegistrationForm() {
         className={styles.input}
       />
       {errors.password && <div className={styles.error}>{errors.password}</div>}
+      <input
+        type="password"
+        name="confirmPassword"
+        value={formData.confirmPassword}
+        onChange={handleChange}
+        placeholder="Confirm Password"
+        className={styles.input}
+      />
+      {errors.confirmPassword && <div className={styles.error}>{errors.confirmPassword}</div>}
       <button type="submit" className={styles.button}>Register</button>
     </form>
   );
