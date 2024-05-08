@@ -3,14 +3,21 @@ import { Layout, Menu, Button } from 'antd';
 import './App.css';
 
 import RegistrationForm from './Components/pages/registrationpage/RegistrationForm';
-
+import loginForm from './Components/pages/loginpage/loginForm'; 
 const { Header, Content, Footer, Sider } = Layout;
 
 const App = () => {
-  const [showForm, setShowForm] = useState(false);
+  const [showRegForm, setShowRegForm] = useState(false);
+  const [showloginForm, setShowloginForm] = useState(false); 
 
   const handleRegisterClick = () => {
-    setShowForm(true);
+    setShowRegForm(true);
+    setShowloginForm(false); 
+  };
+
+  const handleLoginClick = () => {
+    setShowloginForm(true);
+    setShowRegForm(false); 
   };
 
   return (
@@ -24,7 +31,7 @@ const App = () => {
           <Button type="primary">Home</Button>
           <Button type="primary">Event Schedule</Button>
           <Button type="primary">Event Venues</Button>
-          <Button type="primary">Login</Button>
+          <Button type="primary" onClick={handleLoginClick}>Login</Button> {/* Add onClick handler */}
           <Button type="primary" onClick={handleRegisterClick}>Registration</Button>
         </div>
       </Sider>
@@ -34,7 +41,8 @@ const App = () => {
         </Header>
         <Content style={{ margin: '0 16px' }}>
           <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-            {showForm && <RegistrationForm />}
+            {showRegForm && <RegistrationForm />}
+            {showloginForm && <loginForm />} {/* Render loginForm */}
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
