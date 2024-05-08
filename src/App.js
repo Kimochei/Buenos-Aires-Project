@@ -3,27 +3,33 @@ import { Layout, Menu, Button } from 'antd';
 import './App.css';
 
 import RegistrationForm from './Components/pages/registrationpage/RegistrationForm';
-import loginForm from './Components/pages/loginpage/loginForm.js';
+import LoginForm from './Components/pages/loginpage/LoginForm'; // Ensure the component name starts with a capital letter
+import EventVenues from './Components/pages/eventvenues/EventVenues'; // Import your EventVenues component
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const App = () => {
   const [showRegForm, setShowRegForm] = useState(false);
-  const [showloginForm, setShowloginForm] = useState(false); 
+  const [showLoginForm, setShowLoginForm] = useState(false); 
+  const [showEventVenues, setShowEventVenues] = useState(false); // New state for Event Venues
 
   const handleRegisterClick = () => {
     setShowRegForm(true);
-    setShowloginForm(false); 
+    setShowLoginForm(false);
+    setShowEventVenues(false); // Hide Event Venues when other buttons are clicked
   };
 
   const handleLoginClick = () => {
-    setShowloginForm(true);
-    setShowRegForm(false); 
+    setShowLoginForm(true);
+    setShowRegForm(false);
+    setShowEventVenues(false); // Hide Event Venues when other buttons are clicked
   };
 
   const handleEventVenuesClick = () => {
-   setshow
-  }
+    setShowEventVenues(true); // Show Event Venues when the button is clicked
+    setShowRegForm(false);
+    setShowLoginForm(false);
+  };
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -47,7 +53,8 @@ const App = () => {
         <Content style={{ margin: '0 16px' }}>
           <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
             {showRegForm && <RegistrationForm />}
-            {showloginForm && <loginForm />} {/* Render loginForm */}
+            {showLoginForm && <LoginForm />} {/* Render LoginForm */}
+            {showEventVenues && <EventVenues />} {/* Render EventVenues */}
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
