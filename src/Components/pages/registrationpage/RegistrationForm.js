@@ -3,16 +3,13 @@ import axios from 'axios';
 import styles from './RegistrationForm.module.css';
 
 function RegistrationForm() {
-  // Define formData and error state variables
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    password: '',
-    confirmPassword: '',
+    password: ''  // Add password to formData
   });
   const [errors, setErrors] = useState({});
 
-  // Define handleChange
   const handleChange = (event) => {
     setFormData({
       ...formData,
@@ -20,22 +17,20 @@ function RegistrationForm() {
     });
   };
 
- 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Validate form fields
     let formErrors = {};
-    if (!formData.name) formErrors.name = "Cannot be empty";
+    if (!formData.name) formErrors.name = "Name cannot be empty";
     if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) formErrors.email = "Invalid email";
-    if (formData.password !== formData.confirmPassword) formErrors.password = "Passwords should be the same";
+    if (!formData.password) formErrors.password = "Password cannot be empty";  // Validate password
+
     setErrors(formErrors);
 
-    // If no errors, submit form
     if (Object.keys(formErrors).length === 0) {
-      axios.post('/api/registration', formData)
+      axios.post('/api/users', formData)
         .then(response => {
-          // Handle response
+          // Handle successful registration
         })
         .catch(error => {
           // Handle error
@@ -63,21 +58,12 @@ function RegistrationForm() {
         className={styles.input}
       />
       {errors.email && <div className={styles.error}>{errors.email}</div>}
-      {/* Add other form fields here */}
       <input
         type="password"
         name="password"
         value={formData.password}
         onChange={handleChange}
         placeholder="Password"
-        className={styles.input}
-      />
-      <input
-        type="password"
-        name="confirmPassword"
-        value={formData.confirmPassword}
-        onChange={handleChange}
-        placeholder="Confirm Password"
         className={styles.input}
       />
       {errors.password && <div className={styles.error}>{errors.password}</div>}

@@ -3,8 +3,7 @@ import { Layout, Menu, Button } from 'antd';
 import './App.css';
 
 import RegistrationForm from './Components/pages/registrationpage/RegistrationForm';
-import LoginForm from './Components/pages/loginpage/LoginForm'; // Ensure the component name starts with a capital letter
-import EventVenues from './Components/pages/eventvenues/EventVenues'; // Import your EventVenues component
+import LoginForm from './Components/pages/loginpage/LoginForm';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -54,7 +53,6 @@ const App = () => {
           <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
             {showRegForm && <RegistrationForm />}
             {showLoginForm && <LoginForm />} {/* Render LoginForm */}
-            {showEventVenues && <EventVenues />} {/* Render EventVenues */}
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
