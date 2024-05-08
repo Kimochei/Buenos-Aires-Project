@@ -4,6 +4,7 @@ import './App.css';
 
 import RegistrationForm from './Components/pages/registrationpage/RegistrationForm';
 import LoginForm from './Components/pages/loginpage/LoginForm';
+import EventVenues from './Components/pages/eventvenuespage/EventVenues'; // Import EventVenues
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -52,7 +53,8 @@ const App = () => {
         <Content style={{ margin: '0 16px' }}>
           <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
             {showRegForm && <RegistrationForm />}
-            {showLoginForm && <LoginForm />} {/* Render LoginForm */}
+            {showLoginForm && <LoginForm />}
+            {showEventVenues && <EventVenues />} {/* Render EventVenues */}
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
